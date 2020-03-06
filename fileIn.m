@@ -1,4 +1,11 @@
 function filename = fileIn(dir, numFilesDesired)
+%FILESIN randomly return any random file in a directory
+%   FILENAME = FILEIN(DIRECTORY) return a randomly selected file from DIRECTORY.
+%   FILELIST = FILEIN(DIRECTORY, N) return a list of N files randomly
+%   selected (without replacement) from DIRECTORY.
+%
+%   See also +UTILS/LISTFILES
+
     if nargin < 2
         numFilesDesired = 1;
     end
