@@ -1,0 +1,33 @@
+#+TITLE: +Any MATLAB anonymous value generator package
+
+Any provides methods for getting anonymous values for testing purposes.
+Inspired by the C# package by the same name.
+By using anonymous values instead of arbitrary constants tests better described the desired behavior.
+For example instead of using:
+
+#+BEGIN_SRC matlab
+fileName = './tmp/foo.txt';
+#+END_SRC
+
+To select a file for a test, you would use:
+
+#+BEGIN_SRC matlab
+fileName = any.fileIn('./tmp');
+#+END_SRC
+
+Ensuring the test reader the method should work with any file not just the file chosen.
+Additionally, by using anonymous values the tests become more general.
+When you use any file in a given directory it is harder to write code to get the test to pass that relies on the exact (but unimportant) file choice.
+
+* Installation
+use git clone to clone the package to somewhere on the MATLAB path.
+For the package to be recognized by MATLAB as a package the directory name must be prefixed by a '+'.
+Since the github project name does not start with that '+' clone the package with:
+
+#+BEGIN_SRC sh
+cd somewhere-on-matlab-path
+git clone https://github.com/DavidRConnell/any.git +any
+#+END_SRC
+
+* Dependencies
+Any relies on my general purpose utils MATLAB package which can be cloned at [[https://github.com/DavidRConnell/utils.git]] which should be cloned in the same manner as this package (i.e. make sure to add the '+' in front of the name and clone somewhere on the MATLAB path).
