@@ -27,6 +27,13 @@ classdef fileInTest < matlab.unittest.TestCase
 			testCase.verifyEqual(length(files), filesToGet)
 		end
 
+		function testAllReturnedFilesAreUnique(testCase)
+			filesToGet = randi([2 testCase.numFilesInDir]);
+			files = sort(any.fileIn(testCase.testDir, filesToGet));
+
+			testCase.verifyEqual(files, unique(files))
+		end
+
 		function testErrorIfAskedForTooManyFiles(testCase)
 			filesToGet = testCase.numFilesInDir + randi(10);
 

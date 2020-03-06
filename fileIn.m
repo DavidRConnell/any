@@ -17,7 +17,7 @@ function filename = fileIn(dir, numFilesDesired)
            'Any:AskedForTooManyFiles', ...
            'Asked for more files than exist in "%s" (%d total)', dir, numFilesInDir)
 
-    fileIdx = randi(numFilesInDir, [numFilesDesired, 1]);
+    fileIdx = randperm(numFilesInDir, numFilesDesired);
     filename = allFilesInDir(fileIdx);
 
     if numFilesDesired == 1
