@@ -24,7 +24,8 @@ classdef fileInTest < matlab.unittest.TestCase
 			files = any.fileIn(testCase.testDir, filesToGet);
 
 			testCase.verifyTrue(all(ismember(files, utils.listFiles(testCase.testDir))))
-			testCase.verifyEqual(length(files), filesToGet)
+			testCase.verifyLength(files, filesToGet)
+		end
 		end
 
 		function testAllReturnedFilesAreUnique(testCase)
@@ -36,13 +37,8 @@ classdef fileInTest < matlab.unittest.TestCase
 
 		function testErrorIfAskedForTooManyFiles(testCase)
 			filesToGet = testCase.numFilesInDir + randi(10);
-
-			try
-				files = any.fileIn(testCase.testDir, filesToGet);
-				testCase.verifyFalse(true);
-			catch ME
-				testCase.verifyEqual(ME.identifier, 'Any:AskedForTooManyFiles')
-			end
+			testCase.verifyError(@() any.fileIn(testCase.testDir, filesToGet), ...
+								 'Any:AskedForTooManyFiles')
 		end
 	end
 
