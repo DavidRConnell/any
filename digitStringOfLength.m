@@ -1,7 +1,11 @@
-function str = digitStringOfLength(n)
+function str = digitStringOfLength(range)
 %DIGITSTRINGOFLENGTH return a string of digits
 %   STR = DIGITSTRINGOFLENGTH(N) generate a string of random digits between 0
 %   and 9 of length N.
+%
+%   STR = DIGITSTRINGOFLENGTH([MINN, MAXN]) generate string of random length
+%   between MINN and MAXN.
 
-    str = sprintf('%d', randi([0 9], [1 n]));
+    digits = '0':'9';
+    str = generateString(digits, range);
 end
