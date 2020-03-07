@@ -26,6 +26,13 @@ classdef fileInTest < matlab.unittest.TestCase
 			testCase.verifyTrue(all(ismember(files, utils.listFiles(testCase.testDir))))
 			testCase.verifyLength(files, filesToGet)
 		end
+
+		function testReturnsRangeOfFiles(testCase)
+			filesToGet = [2 testCase.numFilesInDir];
+			files = any.fileIn(testCase.testDir, filesToGet);
+
+			testCase.verifyGreaterThanOrEqual(length(files), filesToGet(1))
+			testCase.verifyLessThanOrEqual(length(files), filesToGet(2))
 		end
 
 		function testAllReturnedFilesAreUnique(testCase)
