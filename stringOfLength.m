@@ -7,5 +7,5 @@ function str = stringOfLength(range)
 %   See also STRING, DIGITSTRINGOFLENGTH
 
     charSet = ['0':'9' 'a':'z' 'A':'Z' '~_\|/,.()[]{}<>!@#$%^&*?+='];
-    str = generateString(charSet, range);
+    str = randomlySampleWithReplacement(charSet, range);
 end

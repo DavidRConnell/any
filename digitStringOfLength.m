@@ -9,5 +9,5 @@ function str = digitStringOfLength(range)
 %   See also STRINGOFLENGTH.
 
     digits = '0':'9';
-    str = generateString(digits, range);
+    str = randomlySampleWithReplacement(digits, range);
 end
