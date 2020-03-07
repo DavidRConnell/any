@@ -5,6 +5,8 @@ function str = digitStringOfLength(range)
 %
 %   STR = DIGITSTRINGOFLENGTH([MINN, MAXN]) generate string of random length
 %   between MINN and MAXN.
+%
+%   See also STRINGOFLENGTH.
 
     digits = '0':'9';
     str = generateString(digits, range);
